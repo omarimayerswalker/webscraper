@@ -7,6 +7,7 @@ var request = require('request'),
 request(url, function(error, response, body) {
     if (!error) {
         var $ = cheerio.load(body),
+            // select the elements to scrape
             temperature = $("[data-variable='temperature'] .wx-value").html();
         console.log("It's " + temperature + " degrees Fahrenheit.");
     } else {
